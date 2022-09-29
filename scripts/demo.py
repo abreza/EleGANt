@@ -35,7 +35,7 @@ def main(config, args):
     h, w, _ = source.shape
     result = result.resize((h, w)); result = np.array(result)
     vis_image = np.hstack((source, lip_ref, skin_ref, eye_ref, result))
-    save_path = os.path.join(args.save_folder, f"result_{i}.png")
+    save_path = os.path.join(args.save_folder, "result.png")
     Image.fromarray(vis_image.astype(np.uint8)).save(save_path)
 
 
