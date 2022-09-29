@@ -32,7 +32,7 @@ def main(config, args):
     skin_ref = np.array(skin_ref)
     eye_ref = np.array(eye_ref)
 
-    h, w, _ = imgA.shape
+    h, w, _ = source.shape
     result = result.resize((h, w)); result = np.array(result)
     vis_image = np.hstack((source, lip_ref, skin_ref, eye_ref, result))
     save_path = os.path.join(args.save_folder, f"result_{i}.png")
