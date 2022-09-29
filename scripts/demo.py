@@ -27,10 +27,14 @@ def main(config, args):
     if result is None:
         return
     
-    imgA = np.array(imgA); imgB = np.array(imgB)
+    source = np.array(source)
+    lip_ref = np.array(lip_ref)
+    skin_ref = np.array(skin_ref)
+    eye_ref = np.array(eye_ref)
+
     h, w, _ = imgA.shape
     result = result.resize((h, w)); result = np.array(result)
-    vis_image = np.hstack((imgA, imgB, result))
+    vis_image = np.hstack((source, lip_ref, skin_ref, eye_ref, result))
     save_path = os.path.join(args.save_folder, f"result_{i}.png")
     Image.fromarray(vis_image.astype(np.uint8)).save(save_path)
 
